@@ -1,0 +1,17 @@
+Reflection and Ethical Considerations:
+
+1. Potential Unfairness in Pricing:
+
+Surge Pricing: Our model heavily weights the Surge_Multiplier. While economically efficient, this can disadvantage lower-income users who need transport during bad weather or emergencies.
+
+Location Bias: If Pickup_Location_Type correlates with specific demographics, the model might unintentionally charge higher rates to specific neighborhoods, leading to digital redlining.
+
+2. Real-World Deployment Risks:
+
+Data Drift: This model was trained on a specific "snapshot" of data. If fuel prices spike or traffic patterns change (e.g., due to road construction), the static LinearRegression model will become inaccurate.
+
+Empty Features: We had to drop Traffic_Level because the sensors failed (empty data). In a real deployment, relying on incomplete sensor networks could lead to underpricing rides during heavy traffic, causing financial loss for drivers.
+
+3. Dataset Limitations:
+
+Synthetic Nature: Since this is a synthetic dataset, it lacks the "noise" of real GPS errors or driver cancellations. The 95% accuracy is likely higher than what we would achieve in the chaotic real world.
